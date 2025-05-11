@@ -23,8 +23,7 @@ class CliffWalkingEnv:
                 for a in range(4):
                     # 位置在悬崖或者目标状态,因为无法继续交互,任何动作奖励都为0
                     if i == self.nrow - 1 and j > 0:
-                        P[i * self.ncol + j][a] = [(1, i * self.ncol + j, 0,
-                                                    True)]
+                        P[i * self.ncol + j][a] = [(1, i * self.ncol + j, 0,True)] # 含义：，下一个移动的位置，这一步获得的奖励，是否结束了
                         continue
                     # 其他位置
                     next_x = min(self.ncol - 1, max(0, j + change[a][0]))
